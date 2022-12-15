@@ -25,6 +25,8 @@ const player2 = Player("bob", "o");
 const submitButton = document.getElementById("submit");
 submitButton.addEventListener("click", userInput);
 
+// Prevent default action of submit form
+// And runs form validity checker
 function userInput(event) {
   const name1 = document.getElementById("player-one-name").value;
   const name2 = document.getElementById("player-two-name").value;
@@ -33,9 +35,10 @@ function userInput(event) {
   if(checkForm(name1, name2, xMarker, oMarker)) {
     alert("run function here");
   }
-  event.preventDefault();
+  event.preventDefault(); // prevent default action
 }
 
+// Check if form is valid
 function checkForm(name1, name2, xMarker, oMarker) {
   if(name1 !== ""
     && name2 !== ""
