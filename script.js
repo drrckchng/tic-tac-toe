@@ -8,20 +8,9 @@ const gameBoard = (() => {
   return { squares };
 })();
 
-// Add event listener to squares
-gameBoard.squares().forEach(square => {
-  square.addEventListener("click", console.log("here"));
-});
-
-// for(let i = 0; i < gameBoard.squares().length; i++) {
-//   gameBoard.squares()[i].addEventListener("click", console.log("clicked"));
-// }
-
 // Module for display controller
 const display = (() => {
 })();
-
-
 
 // Player factory function
 const Player = (name, marker) => {
