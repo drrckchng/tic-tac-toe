@@ -10,6 +10,30 @@
   </head>
   <body>
     <p id="title">Tic Tac Toe</p>
+    <form id="player-select">
+      <fieldset>
+        <legend>Choose Player Names:</legend>
+        <div id="player-one">
+          <label for="player-one-name">Player 1 Name:</label>
+          <input type="text" id="player-one-name" name="playerOneName">
+
+        </div>
+        <div id="player-two">
+          <label for="player-two-name">Player 2 Name:</label>
+          <input type="text" id="player-two-name" name="playerTwoName">
+        </div>
+      </fieldset>
+      <div id="marker-select">
+        <fieldset>
+          <legend>Select Player 1 Marker:</legend>
+          <label for="x-marker">X</label>
+          <input type="radio" id="x-marker" name="marker" value="x-marker">
+          <label for="o-marker">O</label>
+          <input type="radio" id="O-marker" name="marker" value="o-marker">
+        </fieldset>
+      </div>
+      <input type="submit" id="submit" value="Submit">
+    </form>
     <div id="game-board">
       <div class="game-square"></div>
       <div class="game-square"></div>
