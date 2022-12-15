@@ -4,11 +4,17 @@ const gameBoard = (() => {
   return { squares };
 })();
 
+// Module for display controller
+const display = (() => {
+})();
+
+
+
 // Player factory function
-const Player = (marker) => {
-  return { marker };
+const Player = (name, marker) => {
+  return { name, marker };
 }
 
 // Temp Player objects
-const player1 = Player("x");
-const player2 = Player("o");
+const player1 = Player("jim", "x");
+const player2 = Player("bob", "o");
