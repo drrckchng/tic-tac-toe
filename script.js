@@ -23,11 +23,11 @@ const player2 = Player("bob", "o");
 
 // Grab submit button and add click event listener
 const submitButton = document.getElementById("submit");
-submitButton.addEventListener("click", userInput);
+submitButton.addEventListener("click", formInput);
 
 // Prevent default action of submit form
 // And runs form validity checker
-function userInput(event) {
+function formInput(event) {
   const name1 = document.getElementById("player-one-name").value;
   const name2 = document.getElementById("player-two-name").value;
   const xMarker = document.getElementById("x-marker").checked;
