@@ -18,8 +18,8 @@ const Player = (name, marker) => {
 }
 
 // Temp Player objects
-const player1 = Player("jim", "x");
-const player2 = Player("bob", "o");
+let player1;
+let player2;
 
 // Grab submit button and add click event listener
 const submitButton = document.getElementById("submit");
@@ -33,7 +33,13 @@ function formInput(event) {
   const xMarker = document.getElementById("x-marker").checked;
   const oMarker = document.getElementById("o-marker").checked;
   if(checkForm(name1, name2, xMarker, oMarker)) {
-    alert("run function here");
+    if(xMarker) {
+      player1 = Player(name1, "x");
+      player2 = Player(name2, "o");
+    } else {
+      player1 = Player(name1, "o");
+      player2 = Player(name2, "x");
+    }
   }
   event.preventDefault(); // prevent default action
 }
