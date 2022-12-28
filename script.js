@@ -1,11 +1,13 @@
 // Module for game board
 const gameBoard = (() => {
+  let player1;
+  let player2;
   let playerMarks = []; // Tracks player marks
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
-  return { squares };
+  return { player1, player2, squares };
 })();
 
 // Module for display controller
@@ -16,10 +18,6 @@ const display = (() => {
 const Player = (name, marker) => {
   return { name, marker };
 }
-
-// Temp Player objects
-let player1;
-let player2;
 
 // Grab submit button and add click event listener
 const submitButton = document.getElementById("submit");
@@ -34,11 +32,11 @@ function formInput(event) {
   const oMarker = document.getElementById("o-marker").checked;
   if(checkForm(name1, name2, xMarker, oMarker)) {
     if(xMarker) {
-      player1 = Player(name1, "x");
-      player2 = Player(name2, "o");
+      gameBoard.player1 = Player(name1, "x");
+      gameBoard.player2 = Player(name2, "o");
     } else {
-      player1 = Player(name1, "o");
-      player2 = Player(name2, "x");
+      gameBoard.player1 = Player(name1, "o");
+      gameBoard.player2 = Player(name2, "x");
     }
   }
   event.preventDefault(); // prevent default action
