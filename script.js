@@ -2,12 +2,16 @@
 const gameBoard = (() => {
   let player1;
   let player2;
-  let playerMarks = []; // Tracks player marks
+  let playerMarks = [
+    '', '', '',
+    '', '', '',
+    '', '', ''
+  ]; // Tracks player marks
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
-  return { player1, player2, squares };
+  return { player1, player2, playerMarks, squares };
 })();
 
 // Module for display controller
