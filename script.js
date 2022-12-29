@@ -6,7 +6,7 @@ const gameBoard = (() => {
     '', '', '',
     '', '', '',
     '', '', ''
-  ]; // Tracks player marks
+  ];
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
