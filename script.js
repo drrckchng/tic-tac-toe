@@ -9,6 +9,11 @@ const gameBoard = (() => {
   ];
   // check mark of player 1
   const checkMark = () => {
+    // if playerMarks contains anything other than empty string
+    // this means new game, find player 1 mark
+    //
+    // else, game is in progress, find who last put in mark
+    // and get the opposite mark
   }
   const addMark = (event) => {
     // const mark = checkMark()
