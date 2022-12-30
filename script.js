@@ -7,8 +7,9 @@ const gameBoard = (() => {
     '', '', '',
     '', '', ''
   ];
-  const addMark = (index, mark) => {
-    playerMarks[index] = mark;
+  const addMark = (event) => {
+    const index = event.target.getAttribute('data-index');
+    playerMarks[index] = 'x';
   }
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
@@ -64,11 +65,6 @@ function checkForm(name1, name2, xMarker, oMarker) {
 
 // Grab game tile divs and add click event listener
 gameBoard.squares().forEach(div => {
-  div.addEventListener('click', testFunction);
+  div.addEventListener('click', gameBoard.addMark);
 });
 
-// Temp function that is called on click
-function testFunction(event) {
-  const index = event.target.getAttribute('data-index')
-  gameBoard.addMark(index, 'x');
-}
