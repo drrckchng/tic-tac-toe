@@ -7,9 +7,13 @@ const gameBoard = (() => {
     '', '', '',
     '', '', ''
   ];
+  // check mark of player 1
+  const checkMark = () => {
+  }
   const addMark = (event) => {
+    // const mark = checkMark()
     const index = event.target.getAttribute('data-index');
-    playerMarks[index] = 'x';
+    playerMarks[index] = 'x'; // Change later to equal const mark
   }
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
