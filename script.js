@@ -67,6 +67,7 @@ gameBoard.squares().forEach(div => {
   div.addEventListener('click', testFunction);
 });
 
+// Temp function that is called on click
 function testFunction(event) {
   const index = event.target.getAttribute('data-index')
   gameBoard.addMark(index, 'x');
