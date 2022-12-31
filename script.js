@@ -7,18 +7,15 @@ const gameBoard = (() => {
     '', '', '',
     '', '', ''
   ];
-
+  let playerMarks = []; // Tracker for player moves
   // Check next valid mark 
   const checkMark = () => {
-    // game is in progress
     if(marks.includes("x") || marks.includes("o")) {
       // get opposite of last mark
-    // new game
     } else { 
-      // get mark of player 1
+      return player1.marker;
     }
   }
-
   const addMark = (event) => {
     // const mark = checkMark()
     const index = event.target.getAttribute('data-index');
