@@ -2,29 +2,33 @@
 const gameBoard = (() => {
   let player1;
   let player2;
-  let playerMarks = [
+  let marks = [
     '', '', '',
     '', '', '',
     '', '', ''
   ];
-  // check mark of player 1
+
+  // Check next valid mark 
   const checkMark = () => {
-    // if playerMarks contains anything other than empty string
-    // this means new game, find player 1 mark
-    //
-    // else, game is in progress, find who last put in mark
-    // and get the opposite mark
+    // game is in progress
+    if(marks.includes("x") || marks.includes("o")) {
+      // get opposite of last mark
+    // new game
+    } else { 
+      // get mark of player 1
+    }
   }
+
   const addMark = (event) => {
     // const mark = checkMark()
     const index = event.target.getAttribute('data-index');
-    playerMarks[index] = 'x'; // Change later to equal const mark
+    marks[index] = 'x'; // Change later to equal const mark
   }
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
-  return { player1, player2, playerMarks, addMark, squares };
+  return { player1, player2, marks, addMark, squares };
 })();
 
 // Module for display controller
