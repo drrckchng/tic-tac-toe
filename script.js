@@ -7,19 +7,23 @@ const gameBoard = (() => {
     '', '', '',
     '', '', ''
   ];
-  let playerMarks = []; // Tracker for player moves
+  let _playerMarks = []; // Tracker for player moves
   // Check next valid mark 
-  const checkMark = () => {
-    if(marks.includes("x") || marks.includes("o")) {
-      // get opposite of last mark
-    } else { 
+  const _checkMark = () => {
+    if(_playerMarks.length === 0) {
       return player1.marker;
+    } else if(_playerMarks[-1] === 'x') { 
+    } else if(_playerMarks[-1] === 'o') {
     }
   }
   const addMark = (event) => {
-    // const mark = checkMark()
+    const mark = _checkMark()
     const index = event.target.getAttribute('data-index');
-    marks[index] = 'x'; // Change later to equal const mark
+    marks[index] = mark; // Change later to equal const mark
+    _playerMarks.push(mark);
+  }
+  const resetGame = () => {
+    // reset game
   }
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
