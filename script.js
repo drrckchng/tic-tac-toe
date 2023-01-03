@@ -25,7 +25,12 @@ const gameBoard = (() => {
     _playerMarks.push(mark);
   }
   const resetGame = () => {
-    // reset game
+    _playerMarks = [];
+    marks = [
+      '', '', '',
+      '', '', '',
+      '', '', ''
+    ];
   }
   const squares = () => {
     const arr = document.querySelectorAll(".game-square");
