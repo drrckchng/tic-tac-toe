@@ -11,15 +11,17 @@ const gameBoard = (() => {
   // Check next valid mark 
   const _checkMark = () => {
     if(_playerMarks.length === 0) {
-      return player1.marker;
-    } else if(_playerMarks[-1] === 'x') { 
-    } else if(_playerMarks[-1] === 'o') {
+      return gameBoard.player1.marker;
+    } else if(_playerMarks[_playerMarks.length - 1] === 'x') { 
+      return 'o';
+    } else if(_playerMarks[_playerMarks.length - 1] === 'o') {
+      return 'x';
     }
   }
   const addMark = (event) => {
     const mark = _checkMark()
     const index = event.target.getAttribute('data-index');
-    marks[index] = mark; // Change later to equal const mark
+    marks[index] = mark;
     _playerMarks.push(mark);
   }
   const resetGame = () => {
