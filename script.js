@@ -36,7 +36,7 @@ const gameBoard = (() => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
-  return { player1, player2, marks, addMark, squares };
+  return { player1, player2, marks, addMark, resetGame, squares, _playerMarks };
 })();
 
 // Module for display controller
