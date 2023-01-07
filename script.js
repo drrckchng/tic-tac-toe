@@ -48,16 +48,18 @@ const gameBoard = (() => {
 
 // Module for display controller
 const display = (() => {
-  // Select all div 
+  // Select all game board square divs
   const _squares = () => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
+  // Add event listeners to all gameboard squares
   const _addEventListeners = () => {
     _squares().forEach(div => {
       div.addEventListener('click', gameBoard.addMark);
     });
   }
+  // Update grids with player marks
   const updateGrids = (marks) => {
     _squares().forEach(div => {
     });
