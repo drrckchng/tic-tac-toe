@@ -54,26 +54,32 @@ const gameBoard = (() => {
 
 // Module for display controller
 const display = (() => {
+
   // Select all game board square divs
   const _squares = () => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
+
   // Add event listeners to all gameboard squares
   const _addEventListeners = () => {
     _squares().forEach(div => {
       div.addEventListener('click', gameBoard.addMark);
     });
   }
+
   // Update grids with player marks
   const updateGrids = (marks) => {
     for(let i = 0; i < _squares().length; i++) {
       _squares()[i].textContent = gameBoard.marks[i];
     }
   }
+
   // Add click event listeners to each game square div
   _addEventListeners(); 
+
   return { updateGrids };
+
 })();
 
 // Player factory function
@@ -88,10 +94,12 @@ submitButton.addEventListener("click", formInput);
 // Prevent default action of submit form
 // And runs form validity checker
 function formInput(event) {
+
   const name1 = document.getElementById("player-one-name").value;
   const name2 = document.getElementById("player-two-name").value;
   const xMarker = document.getElementById("x-marker").checked;
   const oMarker = document.getElementById("o-marker").checked;
+
   if(checkForm(name1, name2, xMarker, oMarker)) {
     // Check if player 1 mark is x or o
     if(xMarker) {
