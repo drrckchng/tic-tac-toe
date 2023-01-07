@@ -2,12 +2,9 @@
 const gameBoard = (() => {
   let player1;
   let player2;
-  let marks = [
-    "", "", "",
-    "", "", "",
-    "", "", "" 
-  ];
+  let marks = Array(9);
   let _playerMarks = []; // Tracker for player moves
+
   // Check next valid mark 
   const _checkMark = () => {
     if(_playerMarks.length === 0) {
@@ -18,13 +15,17 @@ const gameBoard = (() => {
       return 'x';
     }
   }
+
+  // Check if valid playable square
   const _checkValidMark = (index) => {
-    if(marks[index] === "") {
+    if(marks[index] !== "x" || marks[index] !== "o") {
       return true;
     } else {
       return false;
     }
   }
+
+  // Add mark to square
   const addMark = (event) => {
     const index = event.target.getAttribute('data-index');
     if(_checkValidMark(index)) {
@@ -36,15 +37,19 @@ const gameBoard = (() => {
       console.log("Please choose an empty square");
     }
   }
+  
+  // Reset game
   const resetGame = () => {
-    _playerMarks = [];
-    marks = [
-      "", "", "",
-      "", "", "",
-      "", "", "" 
-    ];
+    // Reset arrays
+    _playerMarks.splice(0,_playerMarks.length);
+    marks.splice(0,marks.length);
+    marks.length = 9;
+    // Update display
+    display.updateGrids();
   }
+
   return { player1, player2, marks, addMark, resetGame, _playerMarks };
+
 })();
 
 // Module for display controller
