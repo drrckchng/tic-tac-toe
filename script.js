@@ -22,6 +22,9 @@ const gameBoard = (() => {
       return false;
     }
   }
+  // Check for game over
+  const _checkGameOver = () => {
+  }
   // Add mark to square
   const addMark = (event) => {
     const index = event.target.getAttribute('data-index');
