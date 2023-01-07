@@ -31,6 +31,7 @@ const gameBoard = (() => {
       const mark = _checkMark()
       marks[index] = mark;
       _playerMarks.push(mark);
+      display.updateGrids();
     } else {
       console.log("Please choose an empty square");
     }
@@ -61,8 +62,9 @@ const display = (() => {
   }
   // Update grids with player marks
   const updateGrids = (marks) => {
-    _squares().forEach(div => {
-    });
+    for(let i = 0; i < _squares().length; i++) {
+      _squares()[i].textContent = gameBoard.marks[i];
+    }
   }
   // Add click event listeners to each game square div
   _addEventListeners(); 
