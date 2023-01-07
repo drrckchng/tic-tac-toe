@@ -44,6 +44,7 @@ const gameBoard = (() => {
     _playerMarks.splice(0,_playerMarks.length);
     marks.splice(0,marks.length);
     marks.length = 9;
+
     // Update display
     display.updateGrids();
   }
@@ -57,8 +58,8 @@ const display = (() => {
 
   // Select all game board square divs
   const _squares = () => {
-    const arr = document.querySelectorAll(".game-square");
-    return arr;
+    const divs = document.querySelectorAll(".game-square");
+    return divs;
   }
 
   // Add event listeners to all gameboard squares
