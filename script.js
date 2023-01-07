@@ -18,11 +18,22 @@ const gameBoard = (() => {
       return 'x';
     }
   }
+  const _checkValidMark = (index) => {
+    if(marks[index] === "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
   const addMark = (event) => {
-    const mark = _checkMark()
     const index = event.target.getAttribute('data-index');
-    marks[index] = mark;
-    _playerMarks.push(mark);
+    if(_checkValidMark(index)) {
+      const mark = _checkMark()
+      marks[index] = mark;
+      _playerMarks.push(mark);
+    } else {
+      console.log("Please choose an empty square");
+    }
   }
   const resetGame = () => {
     _playerMarks = [];
