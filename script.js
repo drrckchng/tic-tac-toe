@@ -48,22 +48,23 @@ const gameBoard = (() => {
 
 // Module for display controller
 const display = (() => {
-  const squares = () => {
+  // Select all div 
+  const _squares = () => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
   const _addEventListeners = () => {
-    squares().forEach(div => {
+    _squares().forEach(div => {
       div.addEventListener('click', gameBoard.addMark);
     });
   }
-  const updateGrids = () => {
-    console.log
+  const updateGrids = (marks) => {
+    _squares().forEach(div => {
+    });
   }
   // Add click event listeners to each game square div
   _addEventListeners(); 
-
-  return { squares };
+  return { updateGrids };
 })();
 
 // Player factory function
