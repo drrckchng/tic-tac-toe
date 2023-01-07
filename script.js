@@ -3,9 +3,9 @@ const gameBoard = (() => {
   let player1;
   let player2;
   let marks = [
-    '', '', '',
-    '', '', '',
-    '', '', ''
+    "", "", "",
+    "", "", "",
+    "", "", "" 
   ];
   let _playerMarks = []; // Tracker for player moves
   // Check next valid mark 
@@ -38,9 +38,9 @@ const gameBoard = (() => {
   const resetGame = () => {
     _playerMarks = [];
     marks = [
-      '', '', '',
-      '', '', '',
-      '', '', ''
+      "", "", "",
+      "", "", "",
+      "", "", "" 
     ];
   }
   const squares = () => {
