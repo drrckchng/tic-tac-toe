@@ -52,12 +52,17 @@ const display = (() => {
     const arr = document.querySelectorAll(".game-square");
     return arr;
   }
-  squares().forEach(div => {
-    div.addEventListener('click', gameBoard.addMark);
-  });
+  const _addEventListeners = () => {
+    squares().forEach(div => {
+      div.addEventListener('click', gameBoard.addMark);
+    });
+  }
   const updateGrids = () => {
     console.log
   }
+  // Add click event listeners to each game square div
+  _addEventListeners(); 
+
   return { squares };
 })();
 
