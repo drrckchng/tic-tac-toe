@@ -43,15 +43,22 @@ const gameBoard = (() => {
       "", "", "" 
     ];
   }
-  const squares = () => {
-    const arr = document.querySelectorAll(".game-square");
-    return arr;
-  }
-  return { player1, player2, marks, addMark, resetGame, squares, _playerMarks };
+  return { player1, player2, marks, addMark, resetGame, _playerMarks };
 })();
 
 // Module for display controller
 const display = (() => {
+  const squares = () => {
+    const arr = document.querySelectorAll(".game-square");
+    return arr;
+  }
+  squares().forEach(div => {
+    div.addEventListener('click', gameBoard.addMark);
+  });
+  const updateGrids = () => {
+    console.log
+  }
+  return { squares };
 })();
 
 // Player factory function
@@ -94,9 +101,4 @@ function checkForm(name1, name2, xMarker, oMarker) {
     return false;
   }
 }
-
-// Grab game tile divs and add click event listener
-gameBoard.squares().forEach(div => {
-  div.addEventListener('click', gameBoard.addMark);
-});
 
