@@ -18,7 +18,7 @@ const gameBoard = (() => {
 
   // Check if valid playable square
   const _checkValidMark = (index) => {
-    if(marks[index] !== "x" || marks[index] !== "o") {
+    if(marks[index] === undefined) {
       return true;
     } else {
       return false;
