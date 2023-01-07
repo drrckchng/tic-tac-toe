@@ -4,7 +4,6 @@ const gameBoard = (() => {
   let player2;
   let marks = Array(9);
   let _playerMarks = []; // Tracker for player moves
-
   // Check next valid mark 
   const _checkMark = () => {
     if(_playerMarks.length === 0) {
@@ -15,7 +14,6 @@ const gameBoard = (() => {
       return 'x';
     }
   }
-
   // Check if valid playable square
   const _checkValidMark = (index) => {
     if(marks[index] === undefined) {
@@ -24,7 +22,6 @@ const gameBoard = (() => {
       return false;
     }
   }
-
   // Add mark to square
   const addMark = (event) => {
     const index = event.target.getAttribute('data-index');
@@ -37,7 +34,6 @@ const gameBoard = (() => {
       console.log("Please choose an empty square");
     }
   }
-  
   // Reset game
   const resetGame = () => {
     // Reset arrays
@@ -48,39 +44,31 @@ const gameBoard = (() => {
     // Update display
     display.updateGrids();
   }
-
   return { player1, player2, marks, addMark, resetGame };
-
 })();
 
 // Module for display controller
 const display = (() => {
-
   // Select all game board square divs
   const _squares = () => {
     const divs = document.querySelectorAll(".game-square");
     return divs;
   }
-
   // Add event listeners to all gameboard squares
   const _addEventListeners = () => {
     _squares().forEach(div => {
       div.addEventListener('click', gameBoard.addMark);
     });
   }
-
   // Update grids with player marks
   const updateGrids = (marks) => {
     for(let i = 0; i < _squares().length; i++) {
       _squares()[i].textContent = gameBoard.marks[i];
     }
   }
-
   // Add click event listeners to each game square div
   _addEventListeners(); 
-
   return { updateGrids };
-
 })();
 
 // Player factory function
