@@ -48,7 +48,7 @@ const gameBoard = (() => {
     display.updateGrids();
   }
 
-  return { player1, player2, marks, addMark, resetGame, _playerMarks };
+  return { player1, player2, marks, addMark, resetGame };
 
 })();
 
