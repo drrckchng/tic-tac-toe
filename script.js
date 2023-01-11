@@ -34,9 +34,6 @@ const gameBoard = (() => {
       [0, 4, 8],
       [2, 4, 6]
     ];
-    // check over each index for winning combos
-    // if all elements within the indices are the same
-    // call end game function
     winningCombo.forEach(indices => {
       // if marks[indices[x]] all equal same
       if() {
