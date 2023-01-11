@@ -24,6 +24,25 @@ const gameBoard = (() => {
   }
   // Check for game over
   const _checkGameOver = () => {
+    const winningCombo = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ];
+    // check over each index for winning combos
+    // if all elements within the indices are the same
+    // call end game function
+    winningCombo.forEach(indices => {
+      // if marks[indices[x]] all equal same
+      if() {
+        // end game
+      }
+    });
   }
   // Add mark to square
   const addMark = (event) => {
