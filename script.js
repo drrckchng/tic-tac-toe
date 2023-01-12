@@ -41,6 +41,7 @@ const gameBoard = (() => {
       }
     });
   }
+  // Check if the elements in the rows are all x's or o's
   const _checkComboIndices = (indices) => {
     if((marks[indices[0]] === "x" &&
       marks[indices[1]] === "x" &&
