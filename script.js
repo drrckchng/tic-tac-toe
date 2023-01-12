@@ -36,10 +36,22 @@ const gameBoard = (() => {
     ];
     winningCombo.forEach(indices => {
       // if marks[indices[x]] all equal same
-      if() {
-        // end game
+      if(_checkComboIndices(indices)) {
+        console.log("Game Over!");
       }
     });
+  }
+  const _checkComboIndices = (indices) => {
+    if((marks[indices[0]] === "x" &&
+      marks[indices[1]] === "x" &&
+      marks[indices[2]] === "x") ||
+      (marks[indices[0]] === "o" &&
+      marks[indices[1]] === "o" &&
+      marks[indices[2]] === "o" )) {
+      return true;
+    } else {
+      return false;
+    }
   }
   // Add mark to square
   const addMark = (event) => {
@@ -63,7 +75,7 @@ const gameBoard = (() => {
     // Update display
     display.updateGrids();
   }
-  return { player1, player2, marks, addMark, resetGame };
+  return { player1, player2, marks, addMark, resetGame, _checkGameOver };
 })();
 
 // Module for display controller
