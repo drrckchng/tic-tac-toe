@@ -62,6 +62,7 @@ const gameBoard = (() => {
       marks[index] = mark;
       _playerMarks.push(mark);
       display.updateGrids();
+      _checkGameOver();
     } else {
       console.log("Please choose an empty square");
     }
