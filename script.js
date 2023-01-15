@@ -43,11 +43,11 @@ const gameBoard = (() => {
   }
   // Upon game over, find who won and call the according display module method
   const _declareWinner = () => {
-    const winnerMarker = _playerMarks.slice(-1);
-    if(winnerMarker === player1.marker) {
-      display.displayWinner(player1.name);
+    const winnerMarker = _playerMarks[_playerMarks.length - 1];
+    if(winnerMarker === gameBoard.player1.marker) {
+      display.displayWinner(gameBoard.player1.name);
     } else {
-      display.displayWinner(player2.name);
+      display.displayWinner(gameBoard.player2.name);
     }
   }
   // Add reset button that calls upon resetgame function
@@ -116,6 +116,8 @@ const display = (() => {
     }
   }
   const displayWinner = (name) => {
+    const winnerMessage = document.getElementById("declare-winner");
+    winnerMessage.textContent = `${name} has won! Would you like to reset the game?`
   }
   // Add click event listeners to each game square div
   _addEventListeners(); 
