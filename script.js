@@ -37,9 +37,18 @@ const gameBoard = (() => {
     winningCombo.forEach(indices => {
       // if marks[indices[x]] all equal same
       if(_checkComboIndices(indices)) {
-        console.log("Game Over!");
+        _declareWinner();
       }
     });
+  }
+  // Upon game over, find who won and call the according display module method
+  const _declareWinner = () => {
+    const winnerMarker = _playerMarks.slice(-1);
+    if(winnerMarker === player1.marker) {
+      display.displayWinner(player1.name);
+    } else {
+      display.displayWinner(player2.name);
+    }
   }
   // Add reset button that calls upon resetgame function
   const _setResetButton = () => {
@@ -106,9 +115,11 @@ const display = (() => {
       _squares()[i].textContent = gameBoard.marks[i];
     }
   }
+  const displayWinner = (name) => {
+  }
   // Add click event listeners to each game square div
   _addEventListeners(); 
-  return { updateGrids };
+  return { updateGrids, displayWinner };
 })();
 
 // Player factory function
