@@ -52,7 +52,6 @@ const gameBoard = (() => {
   }
   // Add reset button that calls upon resetgame function
   const _setResetButton = () => {
-    // Grab appropriate DOM elements
     const resetButton = document.getElementById("reset-game-button");
     resetButton.addEventListener("click", resetGame);
   }
@@ -84,12 +83,9 @@ const gameBoard = (() => {
   }
   // Reset game
   const resetGame = () => {
-    // Reset arrays
     _playerMarks.splice(0,_playerMarks.length);
     marks.splice(0,marks.length);
     marks.length = 9;
-
-    // Update display
     display.updateGrids();
   }
   _setResetButton();
