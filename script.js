@@ -42,10 +42,10 @@ const gameBoard = (() => {
     });
   }
   // Add reset button that calls upon resetgame function
-  const _addResetButton = () => {
+  const _setResetButton = () => {
     // Grab appropriate DOM elements
-    // Create button
-    // Append button to DOM element
+    const resetButton = document.getElementById("reset-game-button");
+    resetButton.addEventListener("click", resetGame);
   }
   // Check if the elements in the rows are all x's or o's
   const _checkComboIndices = (indices) => {
@@ -83,6 +83,7 @@ const gameBoard = (() => {
     // Update display
     display.updateGrids();
   }
+  _setResetButton();
   return { player1, player2, marks, addMark, resetGame, _checkGameOver };
 })();
 
@@ -96,7 +97,7 @@ const display = (() => {
   // Add event listeners to all gameboard squares
   const _addEventListeners = () => {
     _squares().forEach(div => {
-      div.addEventListener('click', gameBoard.addMark);
+      div.addEventListener("click", gameBoard.addMark);
     });
   }
   // Update grids with player marks
