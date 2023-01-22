@@ -40,6 +40,7 @@ const gameBoard = (() => {
     });
   }
   const _declareWinner = () => {
+    document.getElementById("game-over-screen").classList.remove("hide");
     const winnerMarker = _playerMarks[_playerMarks.length - 1];
     if(winnerMarker === gameBoard.player1.marker) {
       display.displayWinner(gameBoard.player1.name);
@@ -48,6 +49,10 @@ const gameBoard = (() => {
     }
   }
   // Add reset button that calls upon resetgame function
+  const _setRematchButton = () => {
+    const rematchButton = document.getElementById("rematch-game-button");
+    rematchButton.addEventListener("click", rematchGame);
+  }
   const _setResetButton = () => {
     const resetButton = document.getElementById("reset-game-button");
     resetButton.addEventListener("click", resetGame);
@@ -66,7 +71,7 @@ const gameBoard = (() => {
     }
   }
   const addMark = (event) => {
-    const index = event.target.getAttribute('data-index');
+    const index = event.target.getAttribute("data-index");
     if(_checkValidMark(index)) {
       const mark = _checkMark()
       marks[index] = mark;
@@ -77,19 +82,23 @@ const gameBoard = (() => {
       console.log("Please choose an empty square");
     }
   }
-  const resetGame = () => {
+  const rematchGame = () => {
+    document.getElementById("game-over-screen").classList.add("hide");
     _playerMarks.splice(0,_playerMarks.length);
     marks.splice(0,marks.length);
     marks.length = 9;
     display.updateGrids();
   }
   // Full reset with player reset
-  const resetGameFull = () => {
-    resetGame();
+  const resetGame = () => {
+    rematchGame();
     player1 = {};
     player2 = {};
+    document.getElementById("game-board").style.display = "none";
+    document.getElementById("player-select").classList.remove("hide");
   }
   _setResetButton();
+  _setRematchButton();
   return { player1, player2, marks, addMark, resetGame, _checkGameOver };
 })();
 
@@ -111,7 +120,7 @@ const display = (() => {
   }
   const displayWinner = (name) => {
     const winnerMessage = document.getElementById("declare-winner");
-    winnerMessage.textContent = `${name} has won! Would you like to reset the game?`
+    winnerMessage.textContent = `${name} has won!`
   }
   // Add click event listeners to each game square div
   _addEventListeners(); 
@@ -140,6 +149,8 @@ const form = (() => {
         gameBoard.player2 = Player(name2, "x");
       }
       // Hide form and show gameboard
+      document.getElementById("player-select").classList.add("hide");
+      document.getElementById("game-board").style.display = "grid";
     }
     event.preventDefault(); // prevent default action
   }
