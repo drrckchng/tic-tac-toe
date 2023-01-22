@@ -14,7 +14,6 @@ const gameBoard = (() => {
       return 'x';
     }
   }
-  // Check if valid playable square
   const _checkValidMark = (index) => {
     if(marks[index] === undefined) {
       return true;
@@ -22,7 +21,6 @@ const gameBoard = (() => {
       return false;
     }
   }
-  // Check for game over
   const _checkGameOver = () => {
     const winningCombo = [
       [0, 1, 2],
@@ -41,7 +39,6 @@ const gameBoard = (() => {
       }
     });
   }
-  // Upon game over, find who won and call the according display module method
   const _declareWinner = () => {
     const winnerMarker = _playerMarks[_playerMarks.length - 1];
     if(winnerMarker === gameBoard.player1.marker) {
@@ -68,7 +65,6 @@ const gameBoard = (() => {
       return false;
     }
   }
-  // Add mark to square
   const addMark = (event) => {
     const index = event.target.getAttribute('data-index');
     if(_checkValidMark(index)) {
@@ -81,7 +77,6 @@ const gameBoard = (() => {
       console.log("Please choose an empty square");
     }
   }
-  // Reset game
   const resetGame = () => {
     _playerMarks.splice(0,_playerMarks.length);
     marks.splice(0,marks.length);
@@ -92,20 +87,17 @@ const gameBoard = (() => {
   return { player1, player2, marks, addMark, resetGame, _checkGameOver };
 })();
 
-// Module for display controller
 const display = (() => {
   // Select all game board square divs
   const _squares = () => {
     const divs = document.querySelectorAll(".game-square");
     return divs;
   }
-  // Add event listeners to all gameboard squares
   const _addEventListeners = () => {
     _squares().forEach(div => {
       div.addEventListener("click", gameBoard.addMark);
     });
   }
-  // Update grids with player marks
   const updateGrids = (marks) => {
     for(let i = 0; i < _squares().length; i++) {
       _squares()[i].textContent = gameBoard.marks[i];
@@ -120,12 +112,10 @@ const display = (() => {
   return { updateGrids, displayWinner };
 })();
 
-// Player factory function
 const Player = (name, marker) => {
   return { name, marker };
 }
 
-// Module for form
 const form = (() => {
   // Prevent default action of submit form
   // And runs form validity checker
@@ -146,7 +136,6 @@ const form = (() => {
     }
     event.preventDefault(); // prevent default action
   }
-  // Check if form is valid
   const checkForm = (name1, name2, xMarker, oMarker) => {
     if(name1 !== ""
       && name2 !== ""
