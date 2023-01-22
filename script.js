@@ -83,6 +83,12 @@ const gameBoard = (() => {
     marks.length = 9;
     display.updateGrids();
   }
+  // Full reset with player reset
+  const resetGameFull = () => {
+    resetGame();
+    player1 = {};
+    player2 = {};
+  }
   _setResetButton();
   return { player1, player2, marks, addMark, resetGame, _checkGameOver };
 })();
@@ -133,6 +139,7 @@ const form = (() => {
         gameBoard.player1 = Player(name1, "o");
         gameBoard.player2 = Player(name2, "x");
       }
+      // Hide form and show gameboard
     }
     event.preventDefault(); // prevent default action
   }
@@ -146,7 +153,6 @@ const form = (() => {
       return false;
     }
   }
-  // Grab submit button and add click event listener
   const submitButton = document.getElementById("submit");
   submitButton.addEventListener("click", formInput);
 })();
