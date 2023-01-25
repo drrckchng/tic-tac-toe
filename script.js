@@ -40,7 +40,7 @@ const gameBoard = (() => {
     });
   }
   const _declareWinner = () => {
-    document.getElementById("game-over-screen").classList.remove("hide");
+    document.getElementById("game-over-screen").classList.add("show");
     const winnerMarker = _playerMarks[_playerMarks.length - 1];
     if(winnerMarker === gameBoard.player1.marker) {
       display.displayWinner(gameBoard.player1.name);
@@ -83,7 +83,7 @@ const gameBoard = (() => {
     }
   }
   const rematchGame = () => {
-    document.getElementById("game-over-screen").classList.add("hide");
+    document.getElementById("game-over-screen").classList.remove("show");
     _playerMarks.splice(0,_playerMarks.length);
     marks.splice(0,marks.length);
     marks.length = 9;
