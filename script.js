@@ -140,7 +140,6 @@ const form = (() => {
     const xMarker = document.getElementById("x-marker").checked;
     const oMarker = document.getElementById("o-marker").checked;
     if(checkForm(name1, name2, xMarker, oMarker)) {
-      // Check if player 1 mark is x or o
       if(xMarker) {
         gameBoard.player1 = Player(name1, "x");
         gameBoard.player2 = Player(name2, "o");
@@ -148,7 +147,6 @@ const form = (() => {
         gameBoard.player1 = Player(name1, "o");
         gameBoard.player2 = Player(name2, "x");
       }
-      // Hide form and show gameboard
       document.getElementById("player-select").classList.add("hide");
       document.getElementById("game-board").style.display = "grid";
     }
